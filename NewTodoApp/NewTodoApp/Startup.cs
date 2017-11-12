@@ -18,8 +18,9 @@ namespace NewTodoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<TodoContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=newtodomaster;Integrated Security=True;Connect Timeout=30"));
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=newtodomaster;Connect Timeout=30"));
             services.AddScoped<TodoRepository>();
+            //Integrated Security = True;
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
