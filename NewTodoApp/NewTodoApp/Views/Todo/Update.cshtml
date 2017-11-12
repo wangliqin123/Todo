@@ -1,0 +1,20 @@
+﻿@model NewTodoApp.Models.Todo
+<head>
+    @{
+        Layout = "_Layout";
+    }
+</head>
+<body class="text-left">
+    <div class="container-fluid">
+        <h2 class="text-left"><em><u><strong><mark>Editing choosen Todo</mark></strong></u></em></h2><br />
+        @using (Html.BeginForm("edit", "todo"))
+        {
+            <input type="hidden" name="Id" value="@Model.Id" />
+                    <h2><strong>Description :</strong>  @Html.TextBoxFor(x => x.Title)</h2>
+                    <h2><strong>Important or not :</strong>  @Html.CheckBoxFor(x => x.IsUrgent)</h2>
+                    <h2><strong>Ready or not :</strong> @Html.CheckBoxFor(x => x.IsDone)</h2>
+                    <button class="btn btn-success btn-lg" type="submit">Submit</button>
+        }
+        <br /><h><a class="btn btn-warning btn-lg" href="/todo">Cancel</a></h>
+    </div>
+</body>
